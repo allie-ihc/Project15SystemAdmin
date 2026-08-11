@@ -13,7 +13,7 @@ Deps: pip install "mcp[cli]"   (FastMCP ships in the official Python SDK)
 import shutil
 from pathlib import Path
 
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 
 mcp = FastMCP("ops-readonly")
 
