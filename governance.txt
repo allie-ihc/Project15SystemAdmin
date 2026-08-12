@@ -1,0 +1,28 @@
+Service: Agent reading over server logs to look for possible issues or threats and creating solutions to issues
+
+Autonomy Ladder: 
+	- 1: read log files - act (read only, cannot enact destructive commands)
+	- 2: resize database - approve (human should judge if necessary, costly and difficult to undo)
+	- 3: restart server - approve (human should judge if necessary to restart server to resolve an issue, reversible but some time-cost)
+
+Gated Actions:
+	- ANY change to irreplaceable data, including logs, cache, databases, etc. - must be approved by IT manager before agent is allowed to act
+	- ANY restarting of services that will temporarily bring down the server - must be approved by IT manager before agent acts
+	- ANY actions that affect a large amount of data or a large amount of services running on the server - must be approved by IT manager
+	- ANY actions that will lead to a monetary expense - IT manager must deem necessary and approve before the agent can act
+
+Rule-of-Two Statement:
+
+	In order to prevent possible misuse of the agent, the agent will not be allowed to reach outside servers or systems and data transfer and information will be gated to only the internals of the server. In addition, the agent will require human approval before any action that alters system state or data stored in the system in order to help prevent attacks from prompt injections. The agent will have access to sensitive logs in order to perform its tasks of reading through logs and looking for potential errors, and the agent will additionally have access to systems on the server in order to propose and enact solutions with human approval. 
+
+Audit/Logging Mechanism:
+
+	Human approval will be granted through tokens. Transfer of approval tokens will be logged along with the date approved and the individual who approved the agent's actions. 
+
+Consumption/Cost Cap: 
+	
+	The agent will require approval from a human before performing any action that occurs a monetary cost. The agent will not be allowed to continually suggest changes if the agent has made up to $200 worth of changes over the course of a month previously, and can instead only suggest actions rather than seeking approval for actions that will further increase the amount spent. 
+
+EU AI Act Notice:
+	Article 14 of the EU AI Act states that AI system should be designed so that "they can be effectively overseen by natural persons during the period in which they are in use" (August 11, 2026). In order to comply with this ruling, our agent is designed to only be able to act with the approval and judgement of a human being, ensuring that a human is aware of and understands the actions that an agent is taking. 
+	
